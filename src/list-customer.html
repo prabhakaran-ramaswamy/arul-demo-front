@@ -1,0 +1,42 @@
+<template>
+<div class="container">
+    <br/>
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Manage <b>Customers</b></h2>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="ml-auto">
+            <button type="button" click.delegate="addCustomer()"><i class="fa fa-plus" aria-hidden="true"></i>Add Customer</button>
+        </div>
+    </div>
+    <br/>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">email</th>
+          <th scope="col">phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="customer of customers">
+          <th scope="row">${customer.id}</th>
+          <td>${customer.fistName} ${customer.lastName}</td>
+          <td>${customer.email} </td>
+          <td>${customer.mobile} </td>
+          <td>${customer.address} </td>
+          <td>
+            <a route-href="route: editCustomer; params.bind: {id:customer.id}" class='btn btn-primary border border-right-0' style="font-size: 9px;"><i class="fa fa-pencil fa-fw"></i> Edit </a>  
+            <a click.delegate="delete(customer)" class="btn btn-danger" href="#" style="font-size: 8px;"> <i class="fa fa-trash-o fa-lg" ></i> Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</template>
